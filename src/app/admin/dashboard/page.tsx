@@ -55,6 +55,17 @@ export default function AdminDashboard() {
           </button>
         </header>
 
+        <div className="grid grid-cols-2 gap-4">
+          <div className="glass-panel p-6 flex flex-col items-center justify-center border border-white/5">
+            <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2 font-bold">Total Verified</p>
+            <p className="text-4xl md:text-5xl font-black font-serif italic text-volt">{players.filter(p => p.payment_verified).length}</p>
+          </div>
+          <div className="glass-panel p-6 flex flex-col items-center justify-center border border-white/5">
+            <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2 font-bold">Total Unverified</p>
+            <p className="text-4xl md:text-5xl font-black font-serif italic text-white">{players.filter(p => !p.payment_verified && p.auction_status !== 'rejected').length}</p>
+          </div>
+        </div>
+
         <div className="glass-panel overflow-x-auto p-2 md:p-8">
           <table className="w-full text-left text-sm" style={{ minWidth: '540px' }}>
             <thead>
