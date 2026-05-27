@@ -136,5 +136,31 @@ select.glass-input option {
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    gap: 12px;
+  }
+
+  /* On small screens, all bento items go full width */
+  .bento-grid > * {
+    grid-column: span 12 !important;
+  }
+
+  .orb-volt,
+  .orb-white {
+    width: 250px;
+    height: 250px;
+  }
+
+  .ambient-orb {
+    filter: blur(60px);
+  }
+}
+
+/* Safe tap highlight removal for mobile */
+button, a {
+  -webkit-tap-highlight-color: transparent;
 }

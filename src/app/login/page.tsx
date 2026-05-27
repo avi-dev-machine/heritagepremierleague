@@ -57,7 +57,7 @@ function LoginContent() {
         </div>
         
         <div className="pt-4">
-           <MagneticButton onClick={() => {}} className="w-full" variant={loading ? "ghost" : "primary"}>
+           <MagneticButton type="submit" className="w-full" variant={loading ? "ghost" : "primary"} disabled={loading}>
              {loading ? "Authenticating..." : "Enter Portal"}
            </MagneticButton>
         </div>

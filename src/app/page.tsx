@@ -25,7 +25,7 @@ export default function Home() {
       ───────────────────────────────────────────────────────── */}
       <motion.section 
         style={{ opacity: heroOpacity, y: heroY }}
-        className="h-screen sticky top-0 flex flex-col justify-center items-center text-center px-6 overflow-hidden"
+        className="h-screen sticky top-0 flex flex-col justify-center items-center text-center px-4 sm:px-6 overflow-hidden"
       >
         {/* Background Video Layer */}
         <div className="absolute inset-0 z-0">
@@ -60,7 +60,7 @@ export default function Home() {
           <p className="tracking-[0.5em] uppercase text-xs md:text-sm text-volt mb-6 font-bold flex items-center justify-center gap-4">
             <span className="w-8 h-[2px] bg-volt" /> THE ULTIMATE FRANCHISE DRAFT <span className="w-8 h-[2px] bg-volt" />
           </p>
-          <h1 className="text-[14vw] md:text-[9vw] leading-[0.85] tracking-tighter mb-6 relative">
+          <h1 className="text-[12vw] sm:text-[10vw] md:text-[9vw] leading-[0.85] tracking-tighter mb-6 relative">
             <span className="font-serif italic font-black text-stroke">HERITAGE</span>
             <br />
             <span className="font-black text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">PREMIER</span>
@@ -71,14 +71,14 @@ export default function Home() {
             Honor the past. <span className="text-white font-bold">Play for the legacy.</span>
           </p>
           
-          <div className="mt-16 flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/register">
-              <MagneticButton variant="primary" className="!py-4 !px-12 text-sm uppercase tracking-widest font-black !bg-volt !text-carbon hover:!bg-white">
+          <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center items-center w-full">
+            <Link href="/register" className="w-full sm:w-auto">
+              <MagneticButton variant="primary" className="!py-4 !px-8 sm:!px-12 text-sm uppercase tracking-widest font-black !bg-volt !text-carbon hover:!bg-white w-full sm:w-auto">
                 ENTER THE DRAFT <ArrowRight size={18} className="ml-2 inline" />
               </MagneticButton>
             </Link>
-            <Link href="/login">
-              <MagneticButton variant="ghost" className="!py-4 !px-12 text-sm uppercase tracking-widest font-bold !text-white hover:!text-volt">
+            <Link href="/login" className="w-full sm:w-auto">
+              <MagneticButton variant="ghost" className="!py-4 !px-8 sm:!px-12 text-sm uppercase tracking-widest font-bold !text-white hover:!text-volt w-full sm:w-auto">
                 PLAYER LOGIN
               </MagneticButton>
             </Link>
@@ -89,7 +89,7 @@ export default function Home() {
       {/* ─────────────────────────────────────────────────────────
           SECTION 2: TOURNAMENT DETAILS (BENTO GRID)
       ───────────────────────────────────────────────────────── */}
-      <section className="min-h-screen relative z-20 py-32 px-6">
+      <section className="min-h-screen relative z-20 py-20 md:py-32 px-4 sm:px-6">
         <div className="absolute inset-0 bg-carbon" />
         
         {/* Dynamic footballer silhouette overlay */}
@@ -101,7 +101,7 @@ export default function Home() {
             className="mb-16 md:mb-24 text-center md:text-left flex flex-col md:flex-row justify-between items-end gap-8"
           >
             <div>
-              <h2 className="text-5xl md:text-7xl font-black font-serif italic mb-4">THE <span className="text-stroke">ARENA</span></h2>
+              <h2 className="text-4xl md:text-7xl font-black font-serif italic mb-4">THE <span className="text-stroke">ARENA</span></h2>
               <p className="text-gray-400 uppercase tracking-widest text-sm font-bold"><span className="text-volt">•</span> Where legends are drafted.</p>
             </div>
             <div className="text-right hidden md:block">
@@ -157,7 +157,7 @@ export default function Home() {
       {/* ─────────────────────────────────────────────────────────
           SECTION 3: REGISTRATION CTA
       ───────────────────────────────────────────────────────── */}
-      <section className="min-h-[70vh] relative z-20 flex flex-col justify-center items-center text-center px-6 border-t border-white/5 bg-carbon overflow-hidden">
+      <section className="min-h-[70vh] relative z-20 flex flex-col justify-center items-center text-center px-4 sm:px-6 border-t border-white/5 bg-carbon overflow-hidden">
         {/* Stadium light beams */}
         <div className="absolute top-0 left-[30%] w-[2px] h-full bg-gradient-to-b from-white/0 via-white/10 to-white/0 transform rotate-[35deg]" />
         <div className="absolute top-0 right-[30%] w-[2px] h-full bg-gradient-to-b from-white/0 via-white/10 to-white/0 transform -rotate-[35deg]" />
@@ -167,19 +167,19 @@ export default function Home() {
 
         <div className="ambient-orb orb-white top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 opacity-[0.05] scale-[2]" />
         
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="z-10 bg-black/40 backdrop-blur-md p-8 md:p-16 rounded-3xl border border-white/10">
-          <h2 className="text-4xl md:text-7xl font-black font-serif italic mb-6">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="z-10 bg-black/40 backdrop-blur-md p-6 sm:p-8 md:p-16 rounded-3xl border border-white/10 w-full max-w-4xl">
+          <h2 className="text-3xl sm:text-4xl md:text-7xl font-black font-serif italic mb-6">
             LACE UP YOUR BOOTS.<br/>
             YOUR <span className="text-stroke">LEGACY AWAITS.</span>
           </h2>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/register">
-              <MagneticButton variant="primary" className="!py-5 !px-12 text-sm uppercase tracking-widest font-black !bg-white !text-carbon hover:!bg-volt">
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <Link href="/register" className="w-full sm:w-auto">
+              <MagneticButton variant="primary" className="!py-5 !px-10 text-sm uppercase tracking-widest font-black !bg-white !text-carbon hover:!bg-volt w-full sm:w-auto">
                 ENTER THE TOURNAMENT
               </MagneticButton>
             </Link>
-            <Link href="/login">
-              <MagneticButton variant="ghost" className="!py-5 !px-12 text-sm uppercase tracking-widest font-bold !text-white hover:!text-volt border border-white/10">
+            <Link href="/login" className="w-full sm:w-auto">
+              <MagneticButton variant="ghost" className="!py-5 !px-10 text-sm uppercase tracking-widest font-bold !text-white hover:!text-volt border border-white/10 w-full sm:w-auto">
                 PLAYER LOGIN
               </MagneticButton>
             </Link>

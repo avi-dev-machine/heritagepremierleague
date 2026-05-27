@@ -71,13 +71,13 @@ export default function PlayerDashboard() {
       <div className="ambient-orb orb-volt bottom-[-20%] left-[-10%] opacity-10" />
 
       <div className="max-w-7xl mx-auto space-y-12">
-        <header className="flex justify-between items-end border-b border-white/10 pb-6 relative z-10">
+        <header className="flex justify-between items-center border-b border-white/10 pb-6 relative z-10">
           <div>
             <p className="text-[10px] text-volt uppercase tracking-widest mb-2 font-bold">HPL / 2026</p>
-            <h1 className="text-3xl md:text-5xl font-black font-serif italic text-white">Player <span className="text-stroke">Dashboard</span></h1>
+            <h1 className="text-2xl md:text-5xl font-black font-serif italic text-white">Player <span className="text-stroke">Dashboard</span></h1>
           </div>
-          <button onClick={handleLogout} className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm uppercase tracking-widest">
-            <LogOut size={16} /> <span className="hidden md:inline">Exit</span>
+          <button onClick={handleLogout} className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-xs uppercase tracking-widest flex-shrink-0 ml-4">
+            <LogOut size={16} /> <span className="hidden sm:inline">Exit</span>
           </button>
         </header>
 
@@ -127,15 +127,15 @@ export default function PlayerDashboard() {
 
           {/* Countdown & Map */}
           <div className="col-span-12 lg:col-span-8 flex flex-col gap-6">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="glass-panel p-8 md:p-12 flex flex-col justify-center items-center h-[300px] relative overflow-hidden group">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-8 z-10">Time until kickoff</p>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="glass-panel p-6 md:p-12 flex flex-col justify-center items-center min-h-[220px] md:h-[300px] relative overflow-hidden group">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-6 z-10">Time until kickoff</p>
               
-              <div className="flex gap-4 md:gap-12 text-center z-10">
-                <div className="flex flex-col"><span className="text-5xl md:text-8xl font-black font-serif italic text-volt drop-shadow-[0_0_20px_rgba(204,255,0,0.5)]">{timeLeft.days}</span><span className="text-[10px] text-gray-500 uppercase tracking-widest mt-2 font-bold">Days</span></div>
-                <span className="text-5xl md:text-8xl font-black font-serif text-white/20">:</span>
-                <div className="flex flex-col"><span className="text-5xl md:text-8xl font-black font-serif italic text-volt drop-shadow-[0_0_20px_rgba(204,255,0,0.5)]">{String(timeLeft.hours).padStart(2, '0')}</span><span className="text-[10px] text-gray-500 uppercase tracking-widest mt-2 font-bold">Hours</span></div>
-                <span className="text-5xl md:text-8xl font-black font-serif text-white/20">:</span>
-                <div className="flex flex-col"><span className="text-5xl md:text-8xl font-black font-serif italic text-volt drop-shadow-[0_0_20px_rgba(204,255,0,0.5)]">{String(timeLeft.minutes).padStart(2, '0')}</span><span className="text-[10px] text-gray-500 uppercase tracking-widest mt-2 font-bold">Mins</span></div>
+              <div className="flex gap-3 md:gap-12 text-center z-10">
+                <div className="flex flex-col"><span className="text-4xl md:text-8xl font-black font-serif italic text-volt drop-shadow-[0_0_20px_rgba(204,255,0,0.5)]">{timeLeft.days}</span><span className="text-[10px] text-gray-500 uppercase tracking-widest mt-2 font-bold">Days</span></div>
+                <span className="text-4xl md:text-8xl font-black font-serif text-white/20">:</span>
+                <div className="flex flex-col"><span className="text-4xl md:text-8xl font-black font-serif italic text-volt drop-shadow-[0_0_20px_rgba(204,255,0,0.5)]">{String(timeLeft.hours).padStart(2, '0')}</span><span className="text-[10px] text-gray-500 uppercase tracking-widest mt-2 font-bold">Hours</span></div>
+                <span className="text-4xl md:text-8xl font-black font-serif text-white/20">:</span>
+                <div className="flex flex-col"><span className="text-4xl md:text-8xl font-black font-serif italic text-volt drop-shadow-[0_0_20px_rgba(204,255,0,0.5)]">{String(timeLeft.minutes).padStart(2, '0')}</span><span className="text-[10px] text-gray-500 uppercase tracking-widest mt-2 font-bold">Mins</span></div>
               </div>
             </motion.div>
 

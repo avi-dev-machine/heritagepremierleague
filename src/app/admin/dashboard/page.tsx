@@ -45,18 +45,18 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen p-6 md:p-12 relative">
       <div className="max-w-7xl mx-auto space-y-12">
-        <header className="flex justify-between items-end pb-6 border-b border-white/10">
+        <header className="flex justify-between items-center pb-6 border-b border-white/10">
           <div>
             <p className="text-[10px] text-volt uppercase tracking-widest mb-2 font-bold">Command Center</p>
-            <h1 className="text-3xl md:text-5xl font-black font-serif italic text-white"><span className="text-stroke">Admin</span> Dashboard</h1>
+            <h1 className="text-2xl md:text-5xl font-black font-serif italic text-white"><span className="text-stroke">Admin</span> Dashboard</h1>
           </div>
-          <button onClick={() => { localStorage.clear(); router.push("/"); }} className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold">
-            <LogOut size={16} /> Exit
+          <button onClick={() => { localStorage.clear(); router.push("/"); }} className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold flex-shrink-0 ml-4">
+            <LogOut size={16} /> <span className="hidden sm:inline">Exit</span>
           </button>
         </header>
 
-        <div className="glass-panel overflow-x-auto p-4 md:p-8">
-          <table className="w-full text-left text-sm whitespace-nowrap">
+        <div className="glass-panel overflow-x-auto p-2 md:p-8">
+          <table className="w-full text-left text-sm" style={{ minWidth: '540px' }}>
             <thead>
               <tr className="text-[10px] text-gray-500 uppercase tracking-widest border-b border-white/10">
                 <th className="pb-4 font-normal">Name</th>
@@ -97,8 +97,8 @@ export default function AdminDashboard() {
       {/* Detail Modal */}
       {selectedPlayer && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl">
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="glass-panel w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 md:p-12 relative border border-white/20">
-            <button onClick={() => setSelectedPlayer(null)} className="absolute top-8 right-8 text-gray-500 hover:text-white transition-colors"><X size={24} /></button>
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="glass-panel w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 md:p-12 relative border border-white/20">
+            <button onClick={() => setSelectedPlayer(null)} className="absolute top-4 right-4 md:top-8 md:right-8 text-gray-500 hover:text-white transition-colors z-10"><X size={24} /></button>
             <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-2">Player Dossier</p>
             <h2 className="text-4xl font-black font-serif italic mb-10 text-white">{selectedPlayer.full_name}</h2>
             
@@ -127,8 +127,8 @@ export default function AdminDashboard() {
             </div>
 
             {!selectedPlayer.payment_verified && selectedPlayer.auction_status !== 'rejected' && (
-               <div className="mt-12 flex gap-6">
-                 <MagneticButton onClick={() => handleAction(selectedPlayer.id, "verify")} className="flex-1 !bg-volt !text-carbon hover:!bg-white" variant="primary">Authorize & Notify</MagneticButton>
+               <div className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-4">
+                 <MagneticButton onClick={() => handleAction(selectedPlayer.id, "verify")} className="flex-1 !bg-volt !text-carbon hover:!bg-white" variant="primary">Authorize &amp; Notify</MagneticButton>
                  <MagneticButton onClick={() => handleAction(selectedPlayer.id, "reject")} className="flex-1 !bg-transparent !text-red-500 !border-red-500/50 hover:!bg-red-500/10" variant="secondary">Reject Dossier</MagneticButton>
                </div>
             )}
