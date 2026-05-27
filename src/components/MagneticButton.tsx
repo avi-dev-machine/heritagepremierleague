@@ -6,11 +6,13 @@ import { motion } from "framer-motion";
 interface MagneticButtonProps {
   children: React.ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: any;
   variant?: "primary" | "secondary" | "ghost";
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
-export default function MagneticButton({ children, className = "", onClick, variant = "primary" }: MagneticButtonProps) {
+export default function MagneticButton({ children, className = "", onClick, variant = "primary", type = "button", disabled = false }: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -42,7 +44,9 @@ export default function MagneticButton({ children, className = "", onClick, vari
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       onClick={onClick}
-      className={`${baseStyles} ${variants[variant]} ${className}`}
+      type={type}
+      disabled={disabled}
+      className={`${baseStyles} ${variants[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
     >
       <span className="relative z-10 block">{children}</span>
       {variant === "primary" && (
