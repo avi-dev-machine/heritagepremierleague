@@ -22,7 +22,7 @@ export default function AdminDashboard() {
   const fetchPlayers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:8000/admin/players", { headers: { "Authorization": `Bearer ${token}` } });
+`${process.env.NEXT_PUBLIC_API_URL}/admin/players`, { headers: { `Authorization": `Bearer ${token}` } });
       if (res.ok) setPlayers(await res.json());
     } finally { setLoading(false); }
   };
@@ -31,7 +31,7 @@ export default function AdminDashboard() {
     try {
       const token = localStorage.getItem("token");
       const endpoint = action === "verify" ? "/admin/verify-player" : "/admin/reject-player";
-      const res = await fetch(`http://localhost:8000${endpoint}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${endpoint}`, {
         method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
         body: JSON.stringify({ player_id: playerId })
       });

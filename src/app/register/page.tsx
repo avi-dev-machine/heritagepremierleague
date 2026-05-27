@@ -71,7 +71,7 @@ export default function RegisterPage() {
       const payment_screenshot = await uploadToCloudinary(paymentScreenshot);
       const avatar_url = await uploadToCloudinary(avatar);
 
-      const res = await fetch("http://localhost:8000/auth/register", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, payment_screenshot, avatar_url }),
