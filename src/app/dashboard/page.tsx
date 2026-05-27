@@ -36,7 +36,7 @@ export default function PlayerDashboard() {
 
   const fetchProfile = async (token: string) => {
     try {
-`${process.env.NEXT_PUBLIC_API_URL}/players/me`, { headers: { `Authorization": `Bearer ${token}` } });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/players/me`, { headers: { "Authorization": `Bearer ${token}` } });
       if (res.ok) {
         const data = await res.json();
         setPlayer(data);

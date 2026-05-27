@@ -22,7 +22,7 @@ export default function AdminDashboard() {
   const fetchPlayers = async () => {
     try {
       const token = localStorage.getItem("token");
-`${process.env.NEXT_PUBLIC_API_URL}/admin/players`, { headers: { `Authorization": `Bearer ${token}` } });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/players`, { headers: { "Authorization": `Bearer ${token}` } });
       if (res.ok) setPlayers(await res.json());
     } finally { setLoading(false); }
   };
