@@ -79,7 +79,17 @@ export default function RegisterPage() {
 
       if (!res.ok) {
         const errData = await res.json();
-        throw new Error(errData.detail || "Registration failed");
+        let errMsg = "Registration failed";
+        if (errData.detail) {
+          if (typeof errData.detail === "string") {
+            errMsg = errData.detail;
+          } else if (Array.isArray(errData.detail)) {
+            errMsg = errData.detail.map((e: any) => e.msg).join(", ");
+          } else {
+            errMsg = JSON.stringify(errData.detail);
+          }
+        }
+        throw new Error(errMsg);
       }
       setSuccess(true);
       setTimeout(() => router.push("/login?registered=true"), 3000);
