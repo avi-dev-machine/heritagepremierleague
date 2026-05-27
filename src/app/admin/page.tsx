@@ -49,7 +49,7 @@ export default function AdminLoginPage() {
             <input required type="password" value={passcode} onChange={(e) => setPasscode(e.target.value)} className="glass-input" />
           </div>
           <div className="pt-4">
-            <MagneticButton onClick={() => {}} className="w-full !bg-white !text-black hover:!bg-gray-200" variant="ghost">
+            <MagneticButton type="submit" className="w-full !bg-white !text-black hover:!bg-gray-200" variant="ghost">
               {loading ? "Authenticating..." : "Override Protocol"}
             </MagneticButton>
           </div>
