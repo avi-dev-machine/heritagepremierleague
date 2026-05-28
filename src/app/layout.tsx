@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import Preloader from "@/components/Preloader";
 import "./globals.css";
 
@@ -18,6 +19,7 @@ export default function RootLayout({
         <Preloader />
         <div className="noise-overlay"></div>
         {children}
+        <Analytics />
       </body>
     </html>
   );
