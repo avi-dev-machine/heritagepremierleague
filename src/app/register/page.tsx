@@ -222,7 +222,7 @@ export default function RegisterPage() {
                   <div className="flex flex-col md:flex-row gap-8 items-center md:items-start bg-white/5 p-6 rounded-2xl border border-white/10">
                     <TiltCard className="shrink-0 bg-white p-3 rounded-xl">
                       <div className="w-32 h-32 relative">
-                        <Image src="/upi.jpeg" alt="UPI QR Code" fill sizes="128px" className="object-contain" />
+                        <Image src="/upi2.png" alt="UPI QR Code" fill sizes="128px" className="object-contain" />
                       </div>
                     </TiltCard>
                     <div className="text-center md:text-left space-y-4">
