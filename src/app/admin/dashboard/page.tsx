@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Check, X, LogOut, Eye } from "lucide-react";
+import { Check, X, LogOut, Eye, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import MagneticButton from "@/components/MagneticButton";
 
@@ -40,6 +40,30 @@ export default function AdminDashboard() {
     } catch (e) { alert("Network error"); }
   };
 
+  const handleExportDB = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/export-db`, {
+        headers: { "Authorization": `Bearer ${token}` }
+      });
+      if (res.ok) {
+        const blob = await res.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "HPL_Players_Export.csv";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+      } else {
+        alert("Failed to export database");
+      }
+    } catch (e) {
+      alert("Network error during export");
+    }
+  };
+
   if (loading) return <div className="min-h-screen flex items-center justify-center font-serif text-2xl italic">Loading...</div>;
 
   return (
@@ -50,9 +74,14 @@ export default function AdminDashboard() {
             <p className="text-[10px] text-volt uppercase tracking-widest mb-2 font-bold">Command Center</p>
             <h1 className="text-2xl md:text-5xl font-black font-serif italic text-white"><span className="text-stroke">Admin</span> Dashboard</h1>
           </div>
-          <button onClick={() => { localStorage.clear(); router.push("/"); }} className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold flex-shrink-0 ml-4">
-            <LogOut size={16} /> <span className="hidden sm:inline">Exit</span>
-          </button>
+          <div className="flex items-center gap-4">
+            <button onClick={handleExportDB} className="flex items-center gap-2 text-volt hover:text-white transition-colors text-xs uppercase tracking-widest font-bold flex-shrink-0">
+              <Download size={16} /> <span className="hidden sm:inline">Export DB</span>
+            </button>
+            <button onClick={() => { localStorage.clear(); router.push("/"); }} className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold flex-shrink-0 ml-4">
+              <LogOut size={16} /> <span className="hidden sm:inline">Exit</span>
+            </button>
+          </div>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
