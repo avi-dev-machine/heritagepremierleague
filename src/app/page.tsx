@@ -72,11 +72,9 @@ export default function Home() {
           </p>
           
           <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center items-center w-full">
-            <Link href="/register" className="w-full sm:w-auto">
-              <MagneticButton variant="primary" className="!py-4 !px-8 sm:!px-12 text-sm uppercase tracking-widest font-black !bg-volt !text-carbon hover:!bg-white w-full sm:w-auto">
-                ENTER THE DRAFT <ArrowRight size={18} className="ml-2 inline" />
-              </MagneticButton>
-            </Link>
+            <div className="w-full sm:w-auto py-4 px-8 sm:px-12 text-sm uppercase tracking-widest font-black text-gray-400 border border-gray-600/50 rounded-full bg-white/5 text-center">
+              REGISTRATIONS ARE CLOSED. THANK YOU.
+            </div>
             <Link href="/login" className="w-full sm:w-auto">
               <MagneticButton variant="ghost" className="!py-4 !px-8 sm:!px-12 text-sm uppercase tracking-widest font-bold !text-white hover:!text-volt w-full sm:w-auto">
                 PLAYER LOGIN
@@ -173,11 +171,9 @@ export default function Home() {
             YOUR <span className="text-stroke">LEGACY AWAITS.</span>
           </h2>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <Link href="/register" className="w-full sm:w-auto">
-              <MagneticButton variant="primary" className="!py-5 !px-10 text-sm uppercase tracking-widest font-black !bg-white !text-carbon hover:!bg-volt w-full sm:w-auto">
-                ENTER THE TOURNAMENT
-              </MagneticButton>
-            </Link>
+            <div className="w-full sm:w-auto py-5 px-10 text-sm uppercase tracking-widest font-black text-gray-400 border border-gray-600/50 rounded-full bg-white/5 text-center">
+              REGISTRATIONS ARE CLOSED. THANK YOU.
+            </div>
             <Link href="/login" className="w-full sm:w-auto">
               <MagneticButton variant="ghost" className="!py-5 !px-10 text-sm uppercase tracking-widest font-bold !text-white hover:!text-volt border border-white/10 w-full sm:w-auto">
                 PLAYER LOGIN
